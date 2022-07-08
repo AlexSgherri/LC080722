@@ -1,6 +1,6 @@
 
 
-const key = "nA05caEd5MlW5jVkEuOEa9qP3mMzTG9x";
+const key = "LGIsXTolkzQ8Dlo3XpwHSq8TYrZtY6bG";
 const baseURL = "http://dataservice.accuweather.com/locations/v1/cities/search";
 const currentCondition = `http://dataservice.accuweather.com/currentconditions/v1/`;
 
@@ -24,7 +24,7 @@ const getCity = async (city) => {
   return data[0];
 };
 
-getCity(city)
-  .then((data) => getWeather(data.Key))
-  .then((data) => console.log(data))
-  .catch(err => console.log(err))
+// getCity(city)
+//   .then((data) => getWeather(data.Key))
+//   .then((data) => console.log(data))
+//   .catch(err => console.log(err))

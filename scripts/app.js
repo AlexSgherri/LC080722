@@ -3,7 +3,21 @@ const details = document.querySelector(".details");
 const time = document.querySelector("img.time");
 const icon = document.querySelector(".icon img");
 const card = document.querySelector(".card");
+let LastVisitedCity = localStorage.getItem('LastCity')
 
+window.addEventListener('DOMContentLoaded', (e)=> {
+  e.preventDefault();
+  console.log(LastVisitedCity);
+  updateCity(LastVisitedCity)
+  .then((data) => updateUI(data))
+    .catch((err) => console.log(err));
+})
+
+function keepJustOneCity (city){
+  console.log(city)
+  localStorage.removeItem('LastCity');
+  localStorage.setItem('LastCity', city);
+}
 
 //updating city
 const updateCity = async (city) => {
@@ -55,7 +69,9 @@ console.log(data);
 time.setAttribute("src" , timeSource);
 
 const icons = `images/icons/${weather.WeatherIcon}.svg`
-icon.setAttribute('src', icons)
+icon.setAttribute('src', icons);
+
+keepJustOneCity(cityDetails.EnglishName);
 };
 
 
